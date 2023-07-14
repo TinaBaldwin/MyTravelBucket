@@ -1,0 +1,41 @@
+[
+    { 
+        "city" : "City 1",
+        "name" : "Boston",
+        "monthsToVisit" : "June to October",
+        "attraction" : "The Freedom Trail",
+        "population" : "654,776 thousand", 
+        "nickname" : "Beantown",
+        "adjective" : "great"},
+    { "city" : "City 2", 
+        "name" : "Charleston",
+        "monthsToVisit" : "mid March to May and September to November",
+        "attraction" : "City Market",
+        "population" : "151,612 thousand", 
+        "nickname" : "The Holy City",
+        "adjective" : "fabulous"},
+    { "city" : "City 3",
+        "name" : "New York City", 
+        "monthsToVisit" : "April to June and September to early November",
+        "attraction" : "Times Square",
+        "population" : "8.468 million",
+        "nickname" : "the Big Apple",
+        "adjective" : "vibrant"},
+    { "city" : "City 4",
+        "name" : "San Francisco",
+        "monthsToVisit" : "September to November", 
+        "attraction" : "Golden Gate Park",
+        "population" : "815,201 thousand", 
+        "nickname" : "The Golden City", 
+        "adjective" : "breathtaking"},
+    { "city" : "City 5",
+        "name" : "Savannah",
+        "monthsToVisit" : "March to July", 
+        "attraction" : "Savannah Historic District", 
+        "population" : "147,088 thousand", 
+        "nickname" : "Hostess City of the South", 
+        "adjective" : "beautiful"
+    }
+]
+
+
