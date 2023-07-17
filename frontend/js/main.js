@@ -1,3 +1,6 @@
+'use strict';
+
+
 //hamburger //
 
 const hamburger = document.querySelector('.hamburger');
@@ -52,27 +55,57 @@ function verifyEmail() {
     }
 }
 
-function onWeatherSubmit(event) {
-    event.preventDefault();
-  
-    const zipcode = document.getElementById('zipcode').value;
-  
-    fetch(`/api/temperature/${zipcode}`)
-      .then(response => response.json())
-      .then(data => {
-        const weatherValueElement = document.getElementById('weather_value');
-        if (data.value && data.unit) {
-          const temperature = `${data.value} ${data.unit}`;
-          weatherValueElement.textContent = `Temperature: ${temperature}`;
-        } else {
-          weatherValueElement.textContent = 'Temperature data not available.';
+document.addEventListener('DOMContentLoaded', () => {
+    const fetchQuoteButton = document.getElementById('fetchQuote');
+    const quoteElement = document.getElementById('quote_text');
+    let quoteLoaded = false; // Track if the quote has already been loaded
+
+    fetchQuoteButton.addEventListener('click', () => {
+        if (!quoteLoaded) {
+            axios
+                .get('/quote')
+                .then(response => {
+                    const quote = response.data.quote;
+                    quoteElement.textContent = quote;
+                    quoteLoaded = true; // Update the flag indicating the quote has been loaded
+                })
+                .catch(error => {
+                    console.error(error);
+                });
         }
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  
-    return false;
-  }
-  
+    });
+});
+
+
+
+
+
+
+
+
+// Future Code for Accuweather //
+//  const app = document.getElementById('app');
+//  const weatherButton = document.getElementById('submit');
+   
+//  weatherButton.addEventListener('click', onWeatherSubmit, false);
+
+//  function onWeatherSubmit(e) {
+//    e.preventDefault();
+//    const cityNameInput = document.getElementById('cityName');
+//    const cityName = cityNameInput.value;
     
+    //fetch(`/weather/${cityName}`)
+       // .then(response => response.json())
+      //  .then(data => {
+       //     const weatherValueElement = document.getElementById('weather_value'); //line added
+      //      weatherValueElement.textContent =`Temperature: ${data.temperature}`;
+      //  })
+      //  .catch(error => {
+       //     console.error(error);
+       // })
+    //}
+
+
+
+  
+ 

@@ -37,7 +37,7 @@
      <ul>
          <li><a href=#introduction>Introduction</a></li>
          <li><a href="#destinations">Destinations</a></li>
-         <li><a href="#weather">Weather</a></li>
+         <li><a href="#quote">Quotes</a></li>
          <li><a href="#stayInTouch">Stay In Touch</a></li>
          </ul>
      </nav>
@@ -52,12 +52,7 @@
     <main>
         <!-- Page Title -->
 
-  <!--  <div>
-        <h1 class="title">My Travel Bucket(list)</h1>
-      
-        </div> -->
-
-        <div>
+    <div>
         <h1 class="introduction">Welcome travelers!</h1>
             <div id="introduction">    
             <p>This website lists a few of the places I would like to visit in the United States.</p>
@@ -111,15 +106,11 @@
             </div>
         </div>
 
-<div id="weather">
-    <h4>Check the temperature in your zip code!</h4>
-    <form onsubmit="return onWeatherSubmit(event)">
-        <input type="text" id="zipcode" placeholder="Enter zip code" />
-        <button type="submit" id="submit">Submit</button>
-    </form>
-    <div id="weather_value"></div>
-</div>
-<div id="app"></div>
+<div id="quote">
+    <h4>Enjoy a famous quote!</h4>
+    <button id="fetchQuote">Fetch Quote</button>
+    <p id="quote_text"></p>
+</div>       
 
 
 
@@ -136,8 +127,6 @@
 
 
 
-   <!-- add in box for user to put in recommendation for places to visit -->
-<!-- End of User Recommendations to places to visit -->
 
     <!-- Top Button -->
     <div>
@@ -145,9 +134,10 @@
     </div>
     <!-- End Top Button -->
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-<script src="../frontend/js/main.js"></script>
-<script src="../src/server.js"></script>
+    <script src="./js/main.js"></script>
+   
 
 </body>
 
@@ -155,3 +145,15 @@
     <p>&copy; Website created and maintain by Tina Baldwin 2023</p>
 </footer>
 </html>
+
+
+<!-- Future Code for weather function
+<div id="weather">
+    <h4>Check the weather in your city!</h4>
+    <form onsubmit="return onWeatherSubmit(event)">
+        <input type="text" id="cityName" placeholder="Enter your city" />
+        <button type="submit" id="submit">Submit</button>
+    </form>
+    <div id="weather_value"></div>
+</div>
+<div id="app"></div> -->
