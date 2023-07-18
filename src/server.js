@@ -1,57 +1,198 @@
-'use strict';
-
-
 require('dotenv').config();
 
-const express = require('express')
-const app = express()
 
-app.use(express.json());
+'use strict';
 
-let apiRouter = express.Router()
+const express = require('express');
+const app = express();
+const axios = require('axios');
 
-apiRouter.get('/forecast/:location', (req, res, next) => {
-  fetch(`http://dataservice.accuweather.com/currentconditions/v1/${req.params.location}?
-  apikey=${process.env.WEATHER_API_KEY}`)
-  .then(response => {
-    response.json()
-      .then(json => {
-        if (json.Code) {
-          res.send({"value": "Error", "unit": "None"})
-          return
-        }
+//app.use(express.json());
 
-        returnObject = {
-          "value": json[0].Temperature.Imperial.Value, 
-          "unit": json[0].Temperature.Imperial.Unit
-        }
+//let  = document.getElementById('getQuote').addEventListener('click', getQuote)
 
-        console.log(returnObject)
-        res.status(200).send(returnObject)
-      })
-  })
-  .catch(error => {
-    console.error(error)
-    res.status(500).send("Internal Server Error")
-  })
-})
+async function fetchQuote() {
+  const url = 'https://famous-quotes4.p.rapidapi.com/random?category=all&count=2';
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': process.env.FAMOUS_QUOTES,
+      'X-RapidAPI-Host': 'famous-quotes4.p.rapidapi.com'
+    }
+  };
 
-apiRouter.get('/users', (req, res, next) => {
-  console.log(process.env.SUPER_SECRET_ALL_THE_BASES_BELONG_TO_US)
-  res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify({ hello: "world" }));
-})
-  apiRouter.get('/users/:groups/:id', (req, res, next) => {
-    res.setHeader('Content-Type', 'application/json')
-    res.end(JSON.stringify({ hello: req.params.groups + " world " + req.params.id}))
-  })
+  try {
+    const response = await fetch(url, options);
+    const data = await response.json();
+    const quote = data.content;
+    const author = data.author;
+    console.log(data);
+    console.log('Quote:', quote);
+    console.log('Author:', author);
+    document.getElementById('quoteContent').innerHTML = quote;
+    document.getElementById('quoteAuthor').innerHTML = author;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+fetchQuote();
+
+
+
+
+
+
+
+// code from Justin 7.17.23
+//function getQuote() {
+//  const base = 'https://famous-quotes4.p.rapidapi.com/random?category=all&count=2';
+//  const query = `?apikey=${process.env.FAMOUS_QUOTES}`;
+//  fetch(base + query)
+//    .then((response) => response.json())
+//    .then((data) => {
+//      data.json()
+//        console.log(json)
+//        .then((json) => {
+//         document.getElementById('quoteContent').innerHTML = json.content
+//         document.getElementById('quoteAuthor').innerHTML = json.author
+//         console.log(json)
+//        })
+//        console.log(getQuote);
+//     })
+//     .catch((error) => {
+//        console.error(error);
+//     })
+//  }
+
+//const fetchQuoteButton = document.getElementById('fetchQuoteButton');
+//fetchQuoteButton.addEventListener('click', getQuote);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//app.get('/quote', async (req, res) => {
+//  try {
+//    const options = {
+//      method: 'GET',
+//      url: 'https://famous-quotes4.p.rapidapi.com/random',
+//      params: {
+//        category: 'all',
+//        count: '2'
+//      },
+//      headers: {
+//        'X-RapidAPI-Key': process.env.FAMOUS_QUOTES,
+//        'X-RapidAPI-Host': 'famous-quotes4.p.rapidapi.com'
+//      }
+//    }; 
+
+ //   const response = await axios.request(options);
+ //   res.send(response.data);
+ //   console.log(response.data);
+ // } catch (error) {
+ //     console.error(error);
+ //     res.status(500).send('Internal Server Error');
+//}
+//});
+
+
+const port = 3000;
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
+});
+
+// Middleware to serve static files
+app.use(express.static('../frontend'));
   
-  app.use('/api', apiRouter)
+
+
+// Future Get Weather information from Accuweather Code//
+
+//const getWeather = async (cityKey) => {
+//async function getWeather(cityKey){
+//  const base = 'http://dataservice.accuweather.com/currentconditions/v1/';
+//  const query = `${cityKey}?apikey=${process.env.ACCUWEATHER_KEY}`;
+
+//  try {
+//  const response = await fetch(base + query);
+//  const data = await response.json()
+//  console.log(data)
+//  }
+//  catch(error) {
+//   console.error(error);
+//  };
+
+//};
+
+
+// future Get City information Accuweather //
+//const getCity = async (cityNameInput) => {
+//async function getCity(cityName) { // this is what chat GPT suggested
+//  const base = 'http://dataservice.accuweather.com/locations/v1/cities/search';
+//    const query = `?apikey=${process.env.ACCUWEATHER_KEY}&q=${cityNameInput}`;
+    
+//    const response = await fetch(base + query);
+//    const data = await response.json();
+//    console.log(data);
+//    console.log(data[0].Key);
+//    const cityKey = data[0].Key;
+//    return cityKey;
+    
+   // if (data.length === 0) {
+  //    throw new Error('City not found');
   
-  // Middleware to serve static files
-  app.use(express.static('../frontend'));
-  
-  // Start the server
-  app.listen(3000, () => {
-    console.log('App is listening on port 3000');
-  });
+    
+    //const cityKey = data[0].Key;
+   // return cityKey;
+//}
+
+//getCity('cityName')
+// .then(cityKey => getWeather(cityKey))
+// .then(weatherData => {
+//  console.log(weatherData.temperature, weatherData.unit);
+//})
+//  .catch(error => {
+//    console.error(error)
+//});
+
+
+// .then(data => getWeather(data.Key))
+//.then(data => {
+ //   console.log(data);
+ // })
+ // .catch(error => {
+  //   console.error(error);
+ // });
+
+//    const json = response.data;
+//    console.log('API response received:', json);
+
+//    if (json.length === 0 || json[0].Code) {
+//      res.send({ "value": "Error", "unit": "None" });
+//     return;
+//    } 
+
+//    const returnObject = {
+ //     "value": json[0].Temperature.Imperial.Value,
+//      "unit": json[0].Temperature.Imperial.Unit
+ //   };
+
+ //   console.log(returnObject);
+//    res.status(200).send(returnObject);
+//  } catch (error) {
+//    console.error(error);
+//    res.status(500).send("Internal Server Error");
+//  }
+//});
+ 

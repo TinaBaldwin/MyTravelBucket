@@ -55,26 +55,28 @@ function verifyEmail() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const fetchQuoteButton = document.getElementById('fetchQuote');
-    const quoteElement = document.getElementById('quote_text');
-    let quoteLoaded = false; // Track if the quote has already been loaded
+//document.addEventListener('DOMContentLoaded', () => {
+//    const fetchQuoteButton = document.getElementById('fetchQuote');
+//    const quoteElement = document.getElementById('quote_text');
+//    let quoteLoaded = false; // Track if the quote has already been loaded
+//});
 
-    fetchQuoteButton.addEventListener('click', () => {
-        if (!quoteLoaded) {
-            axios
-                .get('/quote')
-                .then(response => {
-                    const quote = response.data.quote;
-                    quoteElement.textContent = quote;
-                    quoteLoaded = true; // Update the flag indicating the quote has been loaded
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        }
-    });
-});
+
+//    fetchQuoteButton.addEventListener('click', () => {
+//        if (!quoteLoaded) {
+ //           axios
+//                .get('/quote')
+//                .then(response => {
+//                    const quote = response.data.quote;
+//                    quoteElement.textContent = quote;
+//                    quoteLoaded = true; // Update the flag indicating the quote has been loaded
+//                })
+//               .catch(error => {
+//                    console.error(error);
+//                });
+//        }
+//    });
+//});
 
 
 
