@@ -11,30 +11,63 @@ hamburger.addEventListener("click", function () {
     nav.classList.toggle('navbar')
 });
 
-// Accessing data in the cityData array //
 
-fetch('cityData.json')
-    .then(response => response.json())
-    .then(cityDataArray => {
-         
-        // City 1 - Boston //
-        document.getElementById('city1-sentence').textContent = `The best time to visit ${cityDataArray[0].name} is from ${cityDataArray[0].monthsToVisit}. One of the most popular attractions is ${cityDataArray[0].attraction}. With a 2021 population of ${cityDataArray[0].population} and a nickname of ${cityDataArray[0].nickname}, it is a ${cityDataArray[0].adjective} place to visit!`;
- 
-        // City 2 - Charleston //
-        document.getElementById('city2-sentence').textContent = `The best time to visit ${cityDataArray[1].name} is from ${cityDataArray[1].monthsToVisit}. One of the most popular attractions is ${cityDataArray[1].attraction}. With a 2021 population of ${cityDataArray[1].population} and a nickname of ${cityDataArray[1].nickname}, it is a ${cityDataArray[1].adjective} place to visit!`;
- 
-        // City 3 - New York City //
-        document.getElementById('city3-sentence').textContent = `The best time to visit ${cityDataArray[2].name} is from ${cityDataArray[2].monthsToVisit}. One of the most popular attractions is ${cityDataArray[2].attraction}. With a 2021 population of ${cityDataArray[2].population} and a nickname of ${cityDataArray[2].nickname}, it is a ${cityDataArray[2].adjective} place to visit!`;
+// Function build city paragraphs //
 
-        // City 3 - San Francisco //
-         document.getElementById('city4-sentence').textContent = `The best time to visit ${cityDataArray[3].name} is from ${cityDataArray[3].monthsToVisit}. One of the most popular attractions is ${cityDataArray[3].attraction}. With a 2021 population of ${cityDataArray[3].population} and a nickname of ${cityDataArray[3].nickname}, it is a ${cityDataArray[3].adjective} place to visit!`;
+function buildSentences(cityDataArray) {
+    for (let i = 0; i < cityDataArray.length; i++) {
+      const cityData = cityDataArray[i];
+      const sentence = `The best time to visit ${cityData.name} is from ${cityData.monthsToVisit}. One of the most popular attractions is ${cityData.attraction}. With a 2021 population of ${cityData.population} and a nickname of ${cityData.nickname}, it is a ${cityData.adjective} place to visit!`;
+  
+      const sentenceId = `city${i + 1}-sentence`;
+      document.getElementById(sentenceId).textContent = sentence;
+    }
+  };
 
-         // City 3 - Savannah //
-        document.getElementById('city5-sentence').textContent = `The best time to visit ${cityDataArray[4].name} is from ${cityDataArray[4].monthsToVisit}. One of the most popular attractions is ${cityDataArray[4].attraction}. With a 2021 population of ${cityDataArray[4].population} and a nickname of ${cityDataArray[4].nickname}, it is a ${cityDataArray[4].adjective} place to visit!`;
-    })
-    .catch(error => {
-        console.error('Error fetching city data:', error);
-    });
+  const cityDataArray = [
+    { 
+        "city" : "City 1",
+        "name" : "Boston",
+        "monthsToVisit" : "June to October",
+        "attraction" : "The Freedom Trail",
+        "population" : "654,776 thousand", 
+        "nickname" : "Beantown",
+        "adjective" : "great"},
+    { "city" : "City 2", 
+        "name" : "Charleston",
+        "monthsToVisit" : "mid March to May and September to November",
+        "attraction" : "City Market",
+        "population" : "151,612 thousand", 
+        "nickname" : "The Holy City",
+        "adjective" : "fabulous"},
+    { "city" : "City 3",
+        "name" : "New York City", 
+        "monthsToVisit" : "April to June and September to early November",
+        "attraction" : "Times Square",
+        "population" : "8.468 million",
+        "nickname" : "the Big Apple",
+        "adjective" : "vibrant"},
+    { "city" : "City 4",
+        "name" : "San Francisco",
+        "monthsToVisit" : "September to November", 
+        "attraction" : "Golden Gate Park",
+        "population" : "815,201 thousand", 
+        "nickname" : "The Golden City", 
+        "adjective" : "breathtaking"},
+    { "city" : "City 5",
+        "name" : "Savannah",
+        "monthsToVisit" : "March to July", 
+        "attraction" : "Savannah Historic District", 
+        "population" : "147,088 thousand", 
+        "nickname" : "Hostess City of the South", 
+        "adjective" : "beautiful"
+    }
+];
+
+  
+buildSentences(cityDataArray);
+  
+
 
 // Validate Email Address entered by user //
 
@@ -53,13 +86,13 @@ function verifyEmail() {
     {
         validationMessage.textContent = "Try again, that email is not valid";
     }
-}
+};
 
 //document.addEventListener('DOMContentLoaded', () => {
-//    const fetchQuoteButton = document.getElementById('fetchQuote');
-//    const quoteElement = document.getElementById('quote_text');
-//    let quoteLoaded = false; // Track if the quote has already been loaded
-//});
+ //   const fetchQuoteButton = document.getElementById('fetchQuote');
+ //   const quoteElement = document.getElementById('quote_text');
+ //   let quoteLoaded = false; // Track if the quote has already been loaded
+
 
 
 //    fetchQuoteButton.addEventListener('click', () => {

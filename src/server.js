@@ -5,106 +5,58 @@ require('dotenv').config();
 
 const express = require('express');
 const app = express();
-const axios = require('axios');
+//const axios = require('axios');
 
 //app.use(express.json());
 
-//let  = document.getElementById('getQuote').addEventListener('click', getQuote)
-
-async function fetchQuote() {
-  const url = 'https://famous-quotes4.p.rapidapi.com/random?category=all&count=2';
-  const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': process.env.FAMOUS_QUOTES,
-      'X-RapidAPI-Host': 'famous-quotes4.p.rapidapi.com'
-    }
-  };
-
-  try {
-    const response = await fetch(url, options);
-    const data = await response.json();
-    const quote = data.content;
-    const author = data.author;
-    console.log(data);
-    console.log('Quote:', quote);
-    console.log('Author:', author);
-    document.getElementById('quoteContent').innerHTML = quote;
-    document.getElementById('quoteAuthor').innerHTML = author;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-fetchQuote();
 
 
+// code from Justin for API call
+
+let button = document.getElementById('getQuote').addEventListener('click', getQuote);
+
+function getQuote() {
+  fetch('https://famous-quotes4.p.rapidapi.com/random?category=all&count=2').then((data) => {
+    data.json().then((json) => {
+      document.getElementById('quote').innerHTML = json.content
+      document.getElementById('quoteAuthor').innerHTML = json.author
+      console.log(json)
+    }); 
+  });
+};
+
+document.onload = getQuote();
 
 
+// Async Function to get quote from Public API this code works for getting API
+// in localhost:3000 doesn't put the quote on the screen when the button is clicked
 
+//async function fetchQuote() {
+//  const url = 'https://famous-quotes4.p.rapidapi.com/random?category=all&count=2';
+//  const options = {
+//    method: 'GET',
+//    headers: {
+//      'X-RapidAPI-Key': process.env.FAMOUS_QUOTES,
+//      'X-RapidAPI-Host': 'famous-quotes4.p.rapidapi.com'
+//    }
+//  };
 
-
-// code from Justin 7.17.23
-//function getQuote() {
-//  const base = 'https://famous-quotes4.p.rapidapi.com/random?category=all&count=2';
-//  const query = `?apikey=${process.env.FAMOUS_QUOTES}`;
-//  fetch(base + query)
-//    .then((response) => response.json())
-//    .then((data) => {
-//      data.json()
-//        console.log(json)
-//        .then((json) => {
-//         document.getElementById('quoteContent').innerHTML = json.content
-//         document.getElementById('quoteAuthor').innerHTML = json.author
-//         console.log(json)
-//        })
-//        console.log(getQuote);
-//     })
-//     .catch((error) => {
-//        console.error(error);
-//     })
-//  }
-
-//const fetchQuoteButton = document.getElementById('fetchQuoteButton');
-//fetchQuoteButton.addEventListener('click', getQuote);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//app.get('/quote', async (req, res) => {
 //  try {
-//    const options = {
-//      method: 'GET',
-//      url: 'https://famous-quotes4.p.rapidapi.com/random',
-//      params: {
-//        category: 'all',
-//        count: '2'
-//      },
-//      headers: {
-//        'X-RapidAPI-Key': process.env.FAMOUS_QUOTES,
-//        'X-RapidAPI-Host': 'famous-quotes4.p.rapidapi.com'
-//      }
-//    }; 
-
- //   const response = await axios.request(options);
- //   res.send(response.data);
- //   console.log(response.data);
- // } catch (error) {
- //     console.error(error);
- //     res.status(500).send('Internal Server Error');
+//    const response = await fetch(url, options);
+//    const data = await response.json();
+//    const quote = data.content;
+//    const author = data.author;
+//   console.log(data);
+//    console.log('quote:', quote);
+//    console.log('quoteAuthor:', author);
+//    document.getElementById('quote').innerHTML = json.content;
+//    document.getElementById('quoteAuthor').innerHTML = json.author;
+//  } catch (error) {
+//    console.error(error);
+// }
 //}
-//});
+
+//fetchQuote();
 
 
 const port = 3000;
@@ -115,6 +67,13 @@ app.listen(port, () => {
 // Middleware to serve static files
 app.use(express.static('../frontend'));
   
+
+
+
+
+
+
+
 
 
 // Future Get Weather information from Accuweather Code//

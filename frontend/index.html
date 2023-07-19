@@ -63,14 +63,14 @@
         </div>
     </main>
         <div id="destinations">
-        <h2>Places In My Bucket:</h2>
+            <h2>Places In My Bucket:</h2>
         </div>
 
         <h3>Boston</h3>
         <div class="city-container">
             <img class="destination" src="images/jacob-licht-8nA_iHrxHIo-unsplash.jpg" alt="Boston cityscape with water in foreground"/>
             <div class="text-container">
-                <div id="city1-sentence"></div>
+                <p id="city1-sentence"></p>
             </div>
         </div>
 
@@ -106,11 +106,13 @@
             </div>
         </div>
 
-<div id="quote">
+<div id="quoteContainer">
     <h4>Enjoy a famous quote!</h4>
-<!--  <button id="fetchQuoteButton">Fetch Quote</button> -->
-        <div id="Quote"></div>
-        <p id="Author"></p>
+    <div>
+    <input type="button" id="getQuote" value="Get Quote"/>
+        <p id="quote"></p>
+        <p id="quoteAuthor"></p>
+    </div>
 </div>       
 
 
@@ -136,7 +138,8 @@
     <!-- End Top Button -->
 
 
-    <script src="./js/main.js"></script>
+    <script src="../frontend/js/main.js"></script>
+    <script src="../src/server.js"></script>
    
 
 </body>
@@ -145,15 +148,3 @@
     <p>&copy; Website created and maintain by Tina Baldwin 2023</p>
 </footer>
 </html>
-
-
-<!-- Future Code for weather function
-<div id="weather">
-    <h4>Check the weather in your city!</h4>
-    <form onsubmit="return onWeatherSubmit(event)">
-        <input type="text" id="cityName" placeholder="Enter your city" />
-        <button type="submit" id="submit">Submit</button>
-    </form>
-    <div id="weather_value"></div>
-</div>
-<div id="app"></div> -->
