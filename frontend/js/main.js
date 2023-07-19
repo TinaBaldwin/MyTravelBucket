@@ -1,6 +1,5 @@
 'use strict';
 
-
 //hamburger //
 
 const hamburger = document.querySelector('.hamburger');
@@ -23,6 +22,8 @@ function buildSentences(cityDataArray) {
       document.getElementById(sentenceId).textContent = sentence;
     }
   };
+
+// City Data Array //
 
   const cityDataArray = [
     { 
@@ -67,7 +68,6 @@ function buildSentences(cityDataArray) {
   
 buildSentences(cityDataArray);
   
-
 
 // Validate Email Address entered by user //
 

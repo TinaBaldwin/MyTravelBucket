@@ -1,22 +1,22 @@
-require('dotenv').config();
+//require('dotenv').config();
 
 
 'use strict';
 
-const express = require('express');
-const app = express();
+//const express = require('express');
+//const app = express();
 //const axios = require('axios');
 
 //app.use(express.json());
 
 
 
-// code from Justin for API call
+// Call to Quote API //
 
 let button = document.getElementById('getQuote').addEventListener('click', getQuote);
 
 function getQuote() {
-  fetch('https://famous-quotes4.p.rapidapi.com/random?category=all&count=2').then((data) => {
+  fetch('https://api.quotable.io/random').then((data) => {
     data.json().then((json) => {
       document.getElementById('quote').innerHTML = json.content
       document.getElementById('quoteAuthor').innerHTML = json.author
@@ -28,41 +28,10 @@ function getQuote() {
 document.onload = getQuote();
 
 
-// Async Function to get quote from Public API this code works for getting API
-// in localhost:3000 doesn't put the quote on the screen when the button is clicked
-
-//async function fetchQuote() {
-//  const url = 'https://famous-quotes4.p.rapidapi.com/random?category=all&count=2';
-//  const options = {
-//    method: 'GET',
-//    headers: {
-//      'X-RapidAPI-Key': process.env.FAMOUS_QUOTES,
-//      'X-RapidAPI-Host': 'famous-quotes4.p.rapidapi.com'
-//    }
-//  };
-
-//  try {
-//    const response = await fetch(url, options);
-//    const data = await response.json();
-//    const quote = data.content;
-//    const author = data.author;
-//   console.log(data);
-//    console.log('quote:', quote);
-//    console.log('quoteAuthor:', author);
-//    document.getElementById('quote').innerHTML = json.content;
-//    document.getElementById('quoteAuthor').innerHTML = json.author;
-//  } catch (error) {
-//    console.error(error);
-// }
-//}
-
-//fetchQuote();
-
-
 const port = 3000;
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
-});
+//app.listen(port, () => {
+//  console.log(`Server listening on port ${port}`);
+//});
 
 // Middleware to serve static files
 app.use(express.static('../frontend'));
