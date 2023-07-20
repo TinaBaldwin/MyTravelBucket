@@ -69,6 +69,26 @@ function buildSentences(cityDataArray) {
 buildSentences(cityDataArray);
   
 
+// National Tourism Day - Days left calculation //
+
+let today = new Date();
+let tourismYear = today.getFullYear();
+
+if (today.getMonth() > 4 || (today.getMonth() === 4 && today.getDate() >7)) {
+	tourismYear = tourismYear + 1;
+};
+
+let tourismDate = new Date(tourismYear, 4, 7)
+let dayMilliseconds = 1000 * 60 * 60 * 24;
+
+let remainingDays = Math.ceil(
+	(tourismDate.getTime() - today.getTime()) / dayMilliseconds
+  );
+  
+const daysLeftElement = document.getElementById('daysLeft');
+daysLeftElement.textContent = remainingDays.toString();  
+  
+
 // Validate Email Address entered by user //
 
 function verifyEmail() {
