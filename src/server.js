@@ -34,7 +34,7 @@ const port = 3000;
 //});
 
 // Middleware to serve static files
-app.use(express.static('../frontend'));
+//app.use(express.static('../frontend'));
   
 
 

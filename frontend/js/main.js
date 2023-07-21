@@ -86,7 +86,7 @@ let remainingDays = Math.ceil(
   );
   
 const daysLeftElement = document.getElementById('daysLeft');
-daysLeftElement.textContent = remainingDays.toString();  
+daysLeftElement.textContent = `there are ${remainingDays.toString()} days left until May 7th.`;  
   
 
 // Validate Email Address entered by user //

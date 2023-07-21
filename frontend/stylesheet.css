@@ -183,8 +183,8 @@ h3 {
   align-self: center;
 }
 .destination {
-    height: 50%;
-    width: 50%;
+    height: 215.98px;
+    width: 281.33px;
     border-radius: 10%;
     border: 10px solid #ffb703;
     padding: 5;
@@ -198,7 +198,72 @@ h3 {
     width: 20rem;
   }
 
+  h4 {
+    font-size: 1.65em;
+  }
+
+  #quote, #quoteAuthor{
+    font-style: italic;
+    font-size: 1.5em;
+  }
+
  /** End of Destination Styling **/
+
+
+ /** Tourism Day Styling **/ 
+#tourismDayContainer {
+  background-color: #ffb703;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  flex-wrap: wrap;
+  align-self: center;
+  margin: 2em 0 1em 0;
+}
+
+/** End of Tourism Day Styling **/
+
+
+/** Quote Container Styling **/
+
+#quoteContainer {
+  background-color: #023047;
+  color: #ffb703;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  flex-wrap: wrap;
+  align-self: center;
+  margin: 2em 0 2em 0;
+  padding: 1em 0 1.5em 0;
+}
+ 
+#getQuote {
+  background-color: #ffb703;
+  color:#023047;
+  display: flex;
+  text-decoration: none;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 40px;
+  padding: 0;
+  font-weight: bold;
+  border-radius: 10px;
+  margin: auto;
+}
+
+/** End of Quaote Container Styling **/
+
+
+/** Stay in Touch Styling **/
+
+#stayInTouch {
+ align-items: center;
+}
 
 
 
@@ -247,7 +312,12 @@ h3 {
 
 .city-container {
    flex-direction: row;
-  }
+   justify-content: center;
+}
+
+.destination {
+  height: 287.56%;
+  width: 376.75px;
 }
 
 
@@ -294,6 +364,11 @@ nav > ul {
 nav > ul > li{
   font-size: 1.2em;
   width: 9.0rem;
+}
+
+.destination {
+  height: 431.03px;
+  width: 568px;
 }
 
 /*********** End Desktop Screens **************/
