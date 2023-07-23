@@ -26,7 +26,7 @@ Instructions for viewing website
 
 
 Resources:
-https://unsplash.com - for images of the cities
-https://github.com/lukePeavey/quotable - quote API
-https://coolors.co - for color palette
+- https://unsplash.com (for images of the cities)
+- https://github.com/lukePeavey/quotable (quote API)
+- https://coolors.co (for color palette)
 
