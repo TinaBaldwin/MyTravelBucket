@@ -16,6 +16,9 @@ Features included in this project
     - A famous quote is retrieved upon page load from a third-party API (https://github.com/lukePeavey/quotable - quote API). The quote is displayed near the bottom of the page. 
     - The user may click a button to retrieve a new quote if desired.
 
+- Calculate and display data based on an external factor (ex: get the current date, and display how many days remaining until some event)
+    - Used Javascript to calculate the number of days left until National Tourism Day, May 7th. 
+
 
 Instructions for viewing website
 1. Clone this git repository to your local machine 
