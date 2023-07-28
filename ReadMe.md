@@ -21,6 +21,10 @@ Features included in this project
 
 
 Instructions for viewing website
+1. My site is hosted with GitHub Pages at https://tinabaldwin.github.io/MyTravelBucket.io/
+2. Go to the site to view the website
+
+Alternative instructions for viewing the website
 1. Clone this git repository to your local machine 
 2. If downloaded as a zip folder, extract all the files
 3. Open the MyTravelBucket folder
