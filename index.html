@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Meta Tags -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Travel Bucket</title>
+    <link rel="stylesheet" href="./frontend/stylesheet.css"/>
+</head>
+
+<!-- End Meta Tags -->
+
+<body>
+
+    <header>
+
+       
+
+<!-- Hamburger Button -->
+
+    <button class="hamburger">
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+        <div class="line line3"></div>
+    </button>
+
+<!-- End Hamburger Button -->
+ 
+
+
+<!-- Top Navigation Menu -->
+
+    <nav class="nav">
+     <ul>
+         <li><a href=#introduction>Introduction</a></li>
+         <li><a href="#destinations">Destinations</a></li>
+         <li><a href="#quote">Quotes</a></li>
+         <li><a href="#stayInTouch">Stay In Touch</a></li>
+         </ul>
+     </nav>
+   
+<!-- End Top Navigation Menu -->
+
+    <h1 class="title">My Travel Bucket</h1>
+   
+
+</header>
+
+    <main>
+        <!-- Page Title -->
+
+    <div>
+        <h1 class="introduction">Welcome travelers!</h1>
+            <div id="introduction">    
+            <p>This website lists a few of the places I would like to visit in the United States.</p>
+            <p>Below I have listed some interesting facts about each location.</p>
+            <p>There's also link to get the current weather for each location.</p>
+            <p>I hope you have fun exploring my site!</p>
+            </div>
+        </div>
+    </main>
+        <div id="destinations">
+            <h2>Places In My Bucket:</h2>
+        </div>
+
+        <h3>Boston</h3>
+        <div class="city-container">
+            <img class="destination" src="frontend/images/jacob-licht-8nA_iHrxHIo-unsplash.jpg" alt="Boston cityscape with water in foreground"/>
+            <div class="text-container">
+                <p id="city1-sentence" class="cityParagraph"></p>
+            </div>
+        </div>
+
+        <h3>Charleston</h3>
+        <div class="city-container">
+            <img class="destination" src="frontend/images/leonel-heisenberg-126F-Xh3sOo-unsplash.jpg" alt="Carriage on street in Charleston"/>
+            <div class="text-container">
+                <p id="city2-sentence" class="cityParagraph"></p>
+            </div>
+        </div>
+      
+        <h3>New York City</h3>
+        <div class="city-container">
+            <img class="destination" src="frontend/images/jermaine-ee-MMdf6NlivGs-unsplash.jpg" alt="New York City"/>
+            <div class="text-container">
+                <p id="city3-sentence" class="cityParagraph"></p>
+            </div>
+        </div>
+
+        <h3>San Francisco</h3>
+        <div class="city-container">
+            <img class="destination" src="frontend/images/maarten-van-den-heuvel-gZXx8lKAb7Y-unsplash.jpg" alt="Golden Gate Bridge"/>
+            <div class="text-container">
+                <p id="city4-sentence" class="cityParagraph"></p>
+            </div>
+        </div>
+
+        <h3>Savannah</h3>
+        <div class="city-container">
+            <img class="destination" src="frontend/images/philip-arambula-2x6qazBP_r0-unsplash.jpg" alt="Outdoor Fountain in Savannah"/>
+            <div class="text-container">
+                <p id="city5-sentence" class="cityParagraph"></p>
+            </div>
+        </div>
+
+<div id="tourismDayContainer">
+    <h4>National Tourism Day is May 7th each year.</h4>
+        <p>If you want to plan a trip before this national day:</p>
+    <p><span id="daysLeft"></span></p>
+</div>
+
+<div id="quoteContainer">
+    <h4>Enjoy a famous quote!</h4>
+    <div>
+        <p id="quote"></p>
+        <p id="quoteAuthor"></p>
+            <input type="button" id="getQuote" value="Get New Quote"/>
+    </div>
+</div>       
+
+
+<!-- User email entry and email validation -->
+
+<div id="stayInTouch">
+    <h4>Enter your email to stay in touch!</h4>
+    <input id="emailAddr" type="email" placeholder="Enter your email"/> 
+    <button onclick="verifyEmail()">Submit</button>
+    <p id="validationMessage"></p>
+</div>
+
+
+    <!-- Top Button -->
+    <div>
+        <a href="#top" id="topButton" class="btn" title="Go to top">Top</a>
+    </div>
+    <!-- End Top Button -->
+
+
+    <script src="./frontend/js/main.js"></script>
+    <script src="./src/server.js"></script>
+   
+
+</body>
+
+<footer>
+    <p>&copy; Website created and maintain by TB Web Dev 2023</p>
+</footer>
+</html>
